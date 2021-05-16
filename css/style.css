@@ -1,0 +1,27 @@
+footer{
+    text-align: center;
+    font-size: 50px;
+}
+#list{
+float: left;
+padding-top: 30px;
+}
+#imagesdiv #leftImg {
+width: 200x;
+height: 270px;
+display:inline;
+}
+#imagesdiv #rightImg{
+    width: 200x;
+    height: 270px;
+    display:inline;
+}
+
+#imagesdiv #middleImg{
+    width: 180x;
+    height: 200px;
+    display:inline;
+}
+p{
+    padding-top: 50px;
+}
