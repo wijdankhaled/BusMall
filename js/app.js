@@ -98,7 +98,6 @@ if(userACounter<=maxAttempts){
     let list=document.getElementById('list');
     let btn =document.getElementById('btn');
     btn .addEventListener('click',listf);
-
     function listf(){
     let listElement;
     for(let i=0;i<allImg.length;i++){
@@ -119,6 +118,7 @@ vChart();
 //images ${i+1}:${allImg[i].votes}  votes
 
 function vChart() {
+
 
     let ctx = document.getElementById('myChart').getContext('2d');
     let myChart = new Chart(ctx, {
@@ -146,4 +146,4 @@ function vChart() {
     });
 
 }
-//console.log(votesImg);
+
