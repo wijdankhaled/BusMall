@@ -8,16 +8,20 @@ let leftImageIndex;
 let middleImageIndex;
 let rightImageIndex;
 
-let maxAttempts = 5;
+let maxAttempts = 25;
 let userACounter = 0;
-
+let nameImg=[];
 let allImg=[];
+let votesImg=[];
+let showImg=[];
+
 function getImg(name,sorce){
 this.name=name;
 this.sorce=sorce;
 this.show=0;
 this.votes=0;
 allImg.push(this)
+nameImg.push(this.name);
 }
 new getImg('bag','/img/bag.jpg');
 new getImg('banana','/img/banana.jpg');
@@ -50,15 +54,16 @@ rightImageIndex=generateRandomIndex();
 
 do {
     middleImageIndex=generateRandomIndex();
+   rightImageIndex=generateRandomIndex();
 }
 while ((middleImageIndex === leftImageIndex || middleImageIndex===rightImageIndex)||(rightImageIndex===leftImageIndex || rightImageIndex===middleImageIndex)||(leftImageIndex===middleImageIndex || leftImageIndex===rightImageIndex));
 leftImg.src=allImg[leftImageIndex].sorce;
 middelImg.src=allImg[middleImageIndex].sorce;
 rightImg.src=allImg[rightImageIndex].sorce;
 
-console.log(allImg[leftImageIndex].sorce);
-console.log(allImg[middleImageIndex].sorce);
-console.log(allImg[rightImageIndex].sorce);
+//console.log(allImg[leftImageIndex].sorce);
+//console.log(allImg[middleImageIndex].sorce);
+//sconsole.log(allImg[rightImageIndex].sorce);
 
 allImg[leftImageIndex].show++;
 allImg[middleImageIndex].show++;
@@ -89,7 +94,7 @@ if(userACounter<=maxAttempts){
     leftImg.removeEventListener('click',userClick );
     middelImg.removeEventListener('click',userClick );
     rightImg.removeEventListener('click',userClick );
-
+/*
     let list=document.getElementById('list');
     let btn =document.getElementById('btn');
     btn .addEventListener('click',listf);
@@ -101,9 +106,44 @@ if(userACounter<=maxAttempts){
         list.appendChild(listElement);
         listElement.textContent=`${allImg[i].name} had ${allImg[i].votes} votes, and was seen ${allImg[i].show} times`;
     }
+}*/
+for (let i = 0; i < allImg.length; i++) {
+    votesImg.push(allImg[i].votes);
+   showImg.push(allImg[i].show);
 }
+vChart();
 }
 
 }
 //console.log(allImg);
 //images ${i+1}:${allImg[i].votes}  votes
+
+function vChart() {
+
+    let ctx = document.getElementById('myChart').getContext('2d');
+    let myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels:nameImg ,
+            datasets: [{
+                    label: '# of imges Votes',
+                    data: votesImg,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: '# of imges shown',
+                    backgroundColor: 'blue',
+                    borderColor: 'blue',
+                    data:showImg
+                }
+            ]
+        },
+        options: {
+
+        }
+    });
+
+}
+//console.log(votesImg);
