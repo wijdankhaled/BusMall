@@ -1,3 +1,4 @@
+'use strict'
 //console.log("hello iam work");
 let leftImg=document.getElementById('leftImg');
 let middelImg=document.getElementById('middleImg');
@@ -7,13 +8,14 @@ let leftImageIndex;
 let middleImageIndex;
 let rightImageIndex;
 
-let maxAttempts = 25;
+let maxAttempts = 5;
 let userACounter = 0;
 
 let allImg=[];
 function getImg(name,sorce){
 this.name=name;
 this.sorce=sorce;
+this.show=0;
 this.votes=0;
 allImg.push(this)
 }
@@ -57,6 +59,10 @@ rightImg.src=allImg[rightImageIndex].sorce;
 console.log(allImg[leftImageIndex].sorce);
 console.log(allImg[middleImageIndex].sorce);
 console.log(allImg[rightImageIndex].sorce);
+
+allImg[leftImageIndex].show++;
+allImg[middleImageIndex].show++;
+allImg[rightImageIndex].show++;
 }
 
 renderImg();
@@ -85,14 +91,19 @@ if(userACounter<=maxAttempts){
     rightImg.removeEventListener('click',userClick );
 
     let list=document.getElementById('list');
+    let btn =document.getElementById('btn');
+    btn .addEventListener('click',listf);
+
+    function listf(){
     let listElement;
     for(let i=0;i<allImg.length;i++){
         listElement=document.createElement('li');
         list.appendChild(listElement);
-        listElement.textContent=`images ${i+1}:${allImg[i].votes}  votes`;
+        listElement.textContent=`${allImg[i].name} had ${allImg[i].votes} votes, and was seen ${allImg[i].show} times`;
     }
+}
 }
 
 }
 //console.log(allImg);
-//
+//images ${i+1}:${allImg[i].votes}  votes
