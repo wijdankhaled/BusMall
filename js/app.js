@@ -119,7 +119,7 @@ vChart();
 
 function vChart() {
 
-    
+
     let ctx = document.getElementById('myChart').getContext('2d');
     let myChart = new Chart(ctx, {
         type: 'bar',
@@ -146,4 +146,4 @@ function vChart() {
     });
 
 }
-//console.log(votesImg);
+
