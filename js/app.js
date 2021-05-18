@@ -72,6 +72,17 @@ allImg[rightImageIndex].show++;
 
 renderImg();
 
+let usernum=document.getElementById('usernum');
+usernum.addEventListener('submit',userRound);
+function userRound(event){
+event.preventDefault();
+if (maxAttempts=== null){
+    maxAttempts=25;
+}else{
+maxAttempts=event.target.roundnum.value;
+}
+}
+//-------------
 leftImg.addEventListener('click', userClick);
 middelImg.addEventListener('click', userClick);
 rightImg.addEventListener('click', userClick);
@@ -94,7 +105,7 @@ if(userACounter<=maxAttempts){
     leftImg.removeEventListener('click',userClick );
     middelImg.removeEventListener('click',userClick );
     rightImg.removeEventListener('click',userClick );
-/*
+
     let list=document.getElementById('list');
     let btn =document.getElementById('btn');
     btn .addEventListener('click',listf);
@@ -105,7 +116,7 @@ if(userACounter<=maxAttempts){
         list.appendChild(listElement);
         listElement.textContent=`${allImg[i].name} had ${allImg[i].votes} votes, and was seen ${allImg[i].show} times`;
     }
-}*/
+}
 for (let i = 0; i < allImg.length; i++) {
     votesImg.push(allImg[i].votes);
    showImg.push(allImg[i].show);
