@@ -22,7 +22,28 @@ this.show=0;
 this.votes=0;
 allImg.push(this)
 nameImg.push(this.name);
+settingImg();
 }
+
+//--------------------------------------
+function settingImg() {
+  
+   // let data = JSON.stringify(allImg);
+    localStorage.setItem('images', JSON.stringify(allImg));
+}
+/*
+function gettingItems() {
+    let stringObj = localStorage.getItem('imges');
+    let normalObj = JSON.parse(stringObj);
+    if (normalObj !== null) {
+        listElement = normalObj;
+    }
+    renderImg();
+}*/
+
+console.log(allImg);
+
+
 new getImg('bag','/img/bag.jpg');
 new getImg('banana','/img/banana.jpg');
 new getImg('bathroom','/img/bathroom.jpg');
@@ -125,9 +146,9 @@ vChart();
 }
 
 }
-//console.log(allImg);
-//images ${i+1}:${allImg[i].votes}  votes
+//-----------------------------------
 
+//-------------------------------------
 function vChart() {
 
 
