@@ -122,6 +122,7 @@ if(userACounter<=maxAttempts){
         allImg[rightImageIndex].votes = allImg[rightImageIndex].votes + 1;
     }
     renderImg();
+    settingImg();
 }else{
     leftImg.removeEventListener('click',userClick );
     middelImg.removeEventListener('click',userClick );
