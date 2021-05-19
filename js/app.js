@@ -119,9 +119,10 @@ if(userACounter<=maxAttempts){
         allImg[middleImageIndex].votes = allImg[middleImageIndex].votes + 1;
     }
     else if(event.target.id === 'rightImg'){
-        allImg[leftImageIndex].votes = allImg[leftImageIndex].votes + 1;
+        allImg[rightImageIndex].votes = allImg[rightImageIndex].votes + 1;
     }
     renderImg();
+    settingImg();
 }else{
     leftImg.removeEventListener('click',userClick );
     middelImg.removeEventListener('click',userClick );
