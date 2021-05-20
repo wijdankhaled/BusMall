@@ -27,19 +27,20 @@ settingImg();
 
 //--------------------------------------
 function settingImg() {
-  
+  let votes= JSON.stringify(allImg)
    // let data = JSON.stringify(allImg);
-    localStorage.setItem('images', JSON.stringify(allImg));
+    localStorage.setItem('votes',votes);
 }
-/*
-function gettingItems() {
-    let stringObj = localStorage.getItem('imges');
-    let normalObj = JSON.parse(stringObj);
-    if (normalObj !== null) {
-        listElement = normalObj;
+function getImag() {
+    let votes = localStorage.getItem ('Votes');
+    
+    let normal = JSON.parse(votes);
+    
+    if (normal !== null) {
+      allImg = normal;
     }
     renderImg();
-}*/
+  }
 
 console.log(allImg);
 
@@ -122,7 +123,7 @@ if(userACounter<=maxAttempts){
         allImg[rightImageIndex].votes = allImg[rightImageIndex].votes + 1;
     }
     renderImg();
-    settingImg();
+    
 }else{
     leftImg.removeEventListener('click',userClick );
     middelImg.removeEventListener('click',userClick );
@@ -144,6 +145,7 @@ for (let i = 0; i < allImg.length; i++) {
    showImg.push(allImg[i].show);
 }
 vChart();
+settingImg();
 }
 
 }
@@ -180,3 +182,4 @@ function vChart() {
 
 }
 
+getImag();
