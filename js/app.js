@@ -27,22 +27,23 @@ settingImg();
 
 //--------------------------------------
 function settingImg() {
-  let votes= JSON.stringify(allImg)
-   // let data = JSON.stringify(allImg);
-    localStorage.setItem('votes',votes);
-}
-function getImag() {
-    let votes = localStorage.getItem ('Votes');
-    
-    let normal = JSON.parse(votes);
-    
-    if (normal !== null) {
-      allImg = normal;
-    }
-    renderImg();
+    let votes= JSON.stringify(allImg)
+     // let data = JSON.stringify(allImg);
+      localStorage.setItem('votes',votes);
   }
+  function getImag() {
+      let votes = localStorage.getItem ('Votes');
+      
+      let normal = JSON.parse(votes);
+      
+      if (normal !== null) {
+        allImg = normal;
+      }
+      renderImg();
+    }
 
 console.log(allImg);
+
 
 
 new getImg('bag','/img/bag.jpg');
@@ -123,7 +124,7 @@ if(userACounter<=maxAttempts){
         allImg[rightImageIndex].votes = allImg[rightImageIndex].votes + 1;
     }
     renderImg();
-    
+
 }else{
     leftImg.removeEventListener('click',userClick );
     middelImg.removeEventListener('click',userClick );
@@ -163,14 +164,14 @@ function vChart() {
             datasets: [{
                     label: '# of imges Votes',
                     data: votesImg,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'gray',
+                    borderColor: 'gray',
                     borderWidth: 1
                 },
                 {
                     label: '# of imges shown',
-                    backgroundColor: 'blue',
-                    borderColor: 'blue',
+                    backgroundColor: 'white',
+                    borderColor: 'white',
                     data:showImg
                 }
             ]
