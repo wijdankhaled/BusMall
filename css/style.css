@@ -1,6 +1,7 @@
 footer{
     text-align: center;
     font-size: 50px;
+    color: #ca8a8b;
 }
 
 #imagesdiv #leftImg {
@@ -21,10 +22,13 @@ display:inline;
 }
 p{
     padding-top: 50px;
+    color: #999b84;
 }
 body{
     display:inline-block;
+    background-color: #e6c4c0;
 }
+
 #list{
     float: right;
 }
@@ -32,4 +36,9 @@ body{
     text-align: center;
     margin-left: 500px;
     margin-top: 50px;
+    color: #926e6f;
+    background-color: #999b84;
+}
+#input{
+    padding-bottom: 50px;
 }
